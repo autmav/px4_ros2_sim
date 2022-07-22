@@ -1,14 +1,18 @@
 [submodule "PX4-Autopilot"]
 	path = PX4-Autopilot
 	url = https://github.com/PX4/PX4-Autopilot.git
+	ignore = dirty
 [submodule "requirements/Fast-DDS"]
 	path = requirements/Fast-DDS
 	url = https://github.com/eProsima/Fast-DDS.git
 	branch = v2.0.2
+	ignore = dirty	
 [submodule "requirements/foonathan_memory_vendor"]
 	path = requirements/foonathan_memory_vendor
 	url = https://github.com/eProsima/foonathan_memory_vendor.git
+	ignore = dirty	
 [submodule "requirements/Fast-DDS-Gen"]
 	path = requirements/Fast-DDS-Gen
 	url = https://github.com/eProsima/Fast-DDS-Gen.git
 	branch = v1.0.4
+	ignore = dirty	
