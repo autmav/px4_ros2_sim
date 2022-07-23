@@ -10,7 +10,6 @@
 [submodule "requirements/foonathan_memory_vendor"]
 	path = requirements/foonathan_memory_vendor
 	url = https://github.com/eProsima/foonathan_memory_vendor.git
-	branch = master
 	ignore = dirty	
 [submodule "requirements/Fast-DDS-Gen"]
 	path = requirements/Fast-DDS-Gen
@@ -20,6 +19,8 @@
 [submodule "px4_ros_com_ros2/src/px4_ros_com"]
 	path = px4_ros_com_ros2/src/px4_ros_com
 	url = https://github.com/PX4/px4_ros_com.git
+	ignore = dirty
 [submodule "px4_ros_com_ros2/src/px4_msgs"]
 	path = px4_ros_com_ros2/src/px4_msgs
 	url = https://github.com/PX4/px4_msgs.git
+	ignore = dirty
