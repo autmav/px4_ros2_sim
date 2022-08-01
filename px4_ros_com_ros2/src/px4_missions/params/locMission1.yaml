@@ -1,0 +1,41 @@
+# posX_m[m] posY_m[m] posZ_m[m] yaw_rad[rad] 
+# velX_ms[m/s] velY_ms[m/s] velZ_ms[m/s] yaw_rs[rad/s] 
+# TIME[s]
+# offboardMode:
+# 1 - relative position
+# 2 - velocity
+
+/**:
+  ros__parameters:
+    offboardMode: 1
+    x:
+    - 0.0
+    - 10.0
+    - -10.0
+    - 0.0
+    - 0.0
+    y:
+    - 10.0
+    - 10.0
+    - -10.0
+    - -10.0
+    - 0.0
+    z:
+    - 10.0
+    - 15.0
+    - 10.0
+    - 7.0
+    - 5.0
+    yaw:
+    - 0.0
+    - 1.6
+    - 3.1
+    - 4.7
+    - 6.2
+    time_s:
+    - 20.0
+    - 10.0
+    - 10.0
+    - 10.0
+    - 10.0
+    use_sim_time: false
