@@ -36,12 +36,10 @@ sdk install gradle 6.3
 
 #### ROS2 Dependencies
 
-Make sure that you have the followings done:
-
 ```
 sudo apt-get install ros-foxy-geographic-msgs
 
-sudo apt-get install ros-foxy-mavros-msgs
+sudo apt-get install ros-foxy-mavros-msgs #incase using Mavros with ROS2
 ```
 
 #### Colcon Build Tools
@@ -184,7 +182,7 @@ To run the simulation and a sample mission, run the following parts.
 # In a new termianl
 # Starting in the root of repo
 
-cd ~/PX4-Autopilot/
+cd ~/px4_ros2_sim/PX4-Autopilot/
 
 make px4_sitl_rtps gazebo
 ```
@@ -193,7 +191,8 @@ make px4_sitl_rtps gazebo
 
 ```
 # In a new termianl
-# Starting in the root of repo
+
+cd ~/px4_ros2_sim/ #Or cd to root of repo
 
 source px4_ros_com_ros2/install/setup.bash
 
@@ -204,11 +203,12 @@ micrortps_agent -t UDP
 
 ```
 # In a new termianl
-# Starting in the root of repo
+
+cd ~/px4_ros2_sim/ #Or cd to root of repo
 
 source px4_ros_com_ros2/install/setup.bash
 
-ros2 run px4_ros_com offboard_control
+ros2 run px4_missions simpleMissionRTPS 
 ```
 
 
