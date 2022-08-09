@@ -27,6 +27,7 @@ DroneRTPS::DroneRTPS() : Node("DroneRTPS")
 										10, 
 										[this](px4_msgs::msg::VehicleStatus::ConstSharedPtr msg) {
 											vehiclestatus.arming_state.store(msg->arming_state);
+											vehiclestatus.nav_state.store(msg->nav_state);
 										});
 
 	_vehicle_odometry_sub = this->create_subscription<px4_msgs::msg::VehicleOdometry>(
@@ -201,3 +202,4 @@ void DroneRTPS::set_home()
 	RCLCPP_INFO(this->get_logger(), "Home position published");
 
 }
+

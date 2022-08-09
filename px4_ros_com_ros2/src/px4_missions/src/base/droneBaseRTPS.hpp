@@ -43,7 +43,7 @@ public:
 	{ std::atomic<bool> flag_control_offboard_enabled; }vehiclecommandmode;
 
 	struct vehiclestatus
-	{ std::atomic<uint> arming_state; }vehiclestatus;
+	{ std::atomic<uint> arming_state, nav_state; }vehiclestatus;
 
 	// struct HomePose
 	// { std::atomic<float> x, y, z; }HomePose;

@@ -12,8 +12,7 @@ void DroneSimple::flight_mode_timer_callback()
 	switch(state)
 	{
 		case 0:
-			if(stateCounter >11)
-				state = 10;
+
 			break;
 
 		case 10:
@@ -75,6 +74,17 @@ void DroneSimple::flight_mode_timer_callback()
 	switch(state)
 	{
 		case 0:
+			RCLCPP_INFO(this->get_logger(), "Trying to Connect ... ");
+			if(vehiclestatus.arming_state.load() == 0 || vehiclestatus.arming_state.load() == 1 || vehiclestatus.arming_state.load() == 2)
+			{
+				RCLCPP_INFO(this->get_logger(), "Connected");
+				state = 10;
+			}
+			else
+			{
+				RCLCPP_INFO(this->get_logger(), "Not Connected");
+				stateCounter = stateCounter - 1;
+			}
 
 			break;
 
@@ -100,7 +110,7 @@ void DroneSimple::flight_mode_timer_callback()
 				this->setFlightMode(FlightMode::mTakeOff);
 				this->arm();
 				if(vehiclestatus.arming_state.load() == 1){
-					stateCounter = stateCounter -1;
+					stateCounter = stateCounter - 1;
 					RCLCPP_INFO(this->get_logger(), "Not Armed. Retry ...");
 				}
 				else
