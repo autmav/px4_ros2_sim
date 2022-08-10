@@ -116,6 +116,7 @@ void DroneRTPS::publish_offboard_control_mode(OffboardControl mode)
 	msg.attitude = false;
 	msg.body_rate = false;
 	_offboard_control_mode_publisher->publish(msg);
+	RCLCPP_INFO(this->get_logger(), "Offboard Control Mode %s" , OffboardControl::oRelPos);
 }
 
 
@@ -136,7 +137,7 @@ void DroneRTPS::publish_traj_setp_position(float x, float y, float z, float yaw)
 }
 
 
-void DroneRTPS::publish_traj_setp_speed(float vx, float vy, float vz, float yawspeed)
+void DroneRTPS::publish_traj_setp_speed(float vx, float vy, float vz, float yawDOT)
 {
 	TrajectorySetpoint msg{};
 	msg.timestamp = _timestamp.load();
@@ -147,10 +148,31 @@ void DroneRTPS::publish_traj_setp_speed(float vx, float vy, float vz, float yaws
 	msg.velocity[0] = vx;
 	msg.velocity[1] = vy;
 	msg.velocity[2] = vz;
-	msg.yawspeed = yawspeed;
+	msg.yawspeed = yawDOT;
 	_trajectory_setpoint_publisher->publish(msg);
-	RCLCPP_INFO(this->get_logger(), "Trajectory (Speec set point) published");
+	//RCLCPP_INFO(this->get_logger(), "Trajectory (Speec set point) published");
 }
+
+void DroneRTPS::publish_traj_setpoint(float x = std::numeric_limits<float>::quiet_NaN(), float y = std::numeric_limits<float>::quiet_NaN(),
+									  float z = std::numeric_limits<float>::quiet_NaN(), float yaw = std::numeric_limits<float>::quiet_NaN(),
+									  float vx = std::numeric_limits<float>::quiet_NaN(), float vy = std::numeric_limits<float>::quiet_NaN(),
+									  float vz = std::numeric_limits<float>::quiet_NaN(), float yawDOT = std::numeric_limits<float>::quiet_NaN())
+{
+	TrajectorySetpoint msg{};
+	msg.timestamp = _timestamp.load();
+	msg.position[0] = x;
+	msg.position[1] = y;
+	msg.position[2] = z;
+	msg.yaw = yaw;
+	msg.velocity[0] = vx;
+	msg.velocity[1] = vy;
+	msg.velocity[2] = vz;
+	msg.yawspeed = yawDOT;
+	_trajectory_setpoint_publisher->publish(msg);
+	//RCLCPP_INFO(this->get_logger(), "SetPoint Published");
+}
+
+
 
 
 void DroneRTPS::publish_local_pose(float x, float y, float z)

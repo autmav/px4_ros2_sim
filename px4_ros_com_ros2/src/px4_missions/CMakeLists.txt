@@ -33,17 +33,28 @@ find_package(tf2_geometry_msgs REQUIRED)
 
 
 
-# simpleMission RTPS
-add_executable(simpleMissionRTPS src/simpleMissionRTPS.cpp src/simpleRTPS/droneSimple.cpp src/base/droneBaseRTPS.cpp)
-ament_target_dependencies(simpleMissionRTPS rclcpp px4_msgs geometry_msgs geographic_msgs sensor_msgs tf2 tf2_ros tf2_geometry_msgs)
+# offBoardRTPS_Vel
+add_executable(offBoardRTPS_Vel src/offBoardRTPS_Vel.cpp src/simpleRTPS/velCommandDrone.cpp src/base/droneBaseRTPS.cpp)
+ament_target_dependencies(offBoardRTPS_Vel rclcpp px4_msgs geometry_msgs geographic_msgs sensor_msgs tf2 tf2_ros tf2_geometry_msgs)
 
-target_include_directories(simpleMissionRTPS PUBLIC
+target_include_directories(offBoardRTPS_Vel PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-install(TARGETS simpleMissionRTPS
+install(TARGETS offBoardRTPS_Vel
   DESTINATION lib/${PROJECT_NAME})
 
+
+# offBoardRTPS_Pose
+add_executable(offBoardRTPS_Pose src/offBoardRTPS_Pose.cpp src/simpleRTPS/poseCommandDrone.cpp src/base/droneBaseRTPS.cpp)
+ament_target_dependencies(offBoardRTPS_Pose rclcpp px4_msgs geometry_msgs geographic_msgs sensor_msgs tf2 tf2_ros tf2_geometry_msgs)
+
+target_include_directories(offBoardRTPS_Pose PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+install(TARGETS offBoardRTPS_Pose
+  DESTINATION lib/${PROJECT_NAME})
 
 
 

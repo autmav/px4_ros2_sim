@@ -1,5 +1,5 @@
-#ifndef __DRONE_SIMPLE_HPP__
-#define __DRONE_SIMPLE_HPP__
+#ifndef __Pose_Command_Drone_HPP__
+#define __Pose_Command_Drone_HPP__
 
 #include "../base/droneBaseRTPS.hpp"
 

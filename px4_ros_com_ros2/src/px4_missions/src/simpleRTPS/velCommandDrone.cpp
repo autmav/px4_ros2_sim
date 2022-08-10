@@ -1,4 +1,4 @@
-#include "droneSimple.hpp"
+#include "velCommandDrone.hpp"
 
 DroneSimple::DroneSimple() : DroneRTPS()
 {
@@ -21,8 +21,8 @@ void DroneSimple::flight_mode_timer_callback()
 			break;
 
 		case 20:
-			RCLCPP_INFO( this->get_logger(), "Error Z %f ",-PoseSetPoint.z+odometry.z.load() );
-			if(-odometry.z.load() >= -PoseSetPoint.z - 0.2 )
+			RCLCPP_INFO( this->get_logger(), "Error Z %f ",-SetPoint.z + odometry.z.load() );
+			if(-odometry.z.load() >= -SetPoint.z - 0.2 )
 				state = 30;
 			break;
 
@@ -46,10 +46,10 @@ void DroneSimple::flight_mode_timer_callback()
 			break;
 
 		case 50:
-			//RCLCPP_INFO( this->get_logger(), "Error X %f ",PoseSetPoint.x-odometry.x.load() );
-			if(abs(odometry.x.load() - PoseSetPoint.x ) <= 0.1 && stateCounter > 5)
+			//RCLCPP_INFO( this->get_logger(), "Error X %f ",SetPoint.x-odometry.x.load() );
+			if(abs(odometry.x.load() - 5 ) <= 0.1 && stateCounter > 5)
 			{
-				RCLCPP_INFO( this->get_logger(), "Error X %f ",abs(PoseSetPoint.x-odometry.x.load()) );
+				RCLCPP_INFO( this->get_logger(), "Error X %f ",abs(SetPoint.x-odometry.x.load()) );
 			 	state = 60;
 			}
 			break;
@@ -57,7 +57,7 @@ void DroneSimple::flight_mode_timer_callback()
 			if(stateCounter == 1)
 			RCLCPP_INFO(this->get_logger(), " Return ");
 
-			if(abs(odometry.x.load() - PoseSetPoint.x) <= 0.1 && abs(odometry.y.load() - PoseSetPoint.y) <= 0.1 && stateCounter > 5)
+			if(abs(odometry.x.load() - SetPoint.x) <= 0.1 && abs(odometry.y.load() - SetPoint.y) <= 0.1 && stateCounter > 5)
 			{
 				RCLCPP_INFO(this->get_logger(), "SetPoint Reached");
 				state = 70;
@@ -93,10 +93,14 @@ void DroneSimple::flight_mode_timer_callback()
 			if(stateCounter == 1)
 			{
 				RCLCPP_INFO(this->get_logger(), "Initiate ... ");
-				PoseSetPoint.x = 0;
-				PoseSetPoint.y = 0;
-				PoseSetPoint.z = odometry.z.load() - 2.5;
-				PoseSetPoint.yaw = NAN;
+				SetPoint.x = 0;
+				SetPoint.y = 0;
+				SetPoint.z = odometry.z.load() - 2.5;
+				SetPoint.yaw = NAN;
+				SetPoint.vx = 0;
+				SetPoint.vy = 0;
+				SetPoint.vz = 0;
+				SetPoint.yaw = NAN;
 				set_home();
 				publish_offboard_control_mode(OffboardControl::oRelPos);
 
@@ -122,7 +126,7 @@ void DroneSimple::flight_mode_timer_callback()
 
 		case 30:
 
-			publish_offboard_control_mode(OffboardControl::oRelPos);
+			publish_offboard_control_mode(OffboardControl::oVelocity);
 			break;
 
 		case 40:
@@ -134,20 +138,28 @@ void DroneSimple::flight_mode_timer_callback()
 		case 50:
 			if(stateCounter == 1)
 			{
-				PoseSetPoint.x = 5;
-				PoseSetPoint.y = 5;
-				PoseSetPoint.z = -3;
-				PoseSetPoint.yaw = NAN;
+				SetPoint.x = NAN;
+				SetPoint.y = NAN;
+				SetPoint.z = NAN;
+				SetPoint.yaw = NAN;
+				SetPoint.vx = 0;
+				SetPoint.vy = 0.2;
+				SetPoint.vz = 0;
+				SetPoint.yaw = NAN;
 			}
 			break;
 
 		case 60:
 			if(stateCounter == 1)
 			{
-				PoseSetPoint.x = 0;
-				PoseSetPoint.y = 0;
-				PoseSetPoint.z = -3;
-				PoseSetPoint.yaw = NAN;
+				SetPoint.x = NAN;
+				SetPoint.y = NAN;
+				SetPoint.z = NAN;
+				SetPoint.yaw = NAN;
+				SetPoint.vx = 0;
+				SetPoint.vy = -0.2;
+				SetPoint.vz = 0;
+				SetPoint.yaw = NAN;
 			}
 			
 			break;
@@ -155,10 +167,15 @@ void DroneSimple::flight_mode_timer_callback()
 		case 70:
 			if(stateCounter == 1)
 			{
-				PoseSetPoint.x = 0;
-				PoseSetPoint.y = 0;
-				PoseSetPoint.z = 0;
-				PoseSetPoint.yaw = NAN;
+				publish_offboard_control_mode(OffboardControl::oRelPos);
+				SetPoint.x = 0;
+				SetPoint.y = 0;
+				SetPoint.z = 0;
+				SetPoint.yaw = NAN;
+				SetPoint.vx = NAN;
+				SetPoint.vy = NAN;
+				SetPoint.vz = NAN;
+				SetPoint.yaw = NAN;
 				this->setFlightMode(FlightMode::mLand);
 			}
 			break;
@@ -180,8 +197,8 @@ void DroneSimple::flight_mode_timer_callback()
 
 	// OFFBOARD SETPOINTS SEND
 
-	publish_offboard_control_mode(OffboardControl::oRelPos);			
-	publish_traj_setp_position(PoseSetPoint.x, PoseSetPoint.y, PoseSetPoint.z, PoseSetPoint.yaw);
+	//publish_offboard_control_mode(OffboardControl::oVelocity);			
+	publish_traj_setpoint(SetPoint.x, SetPoint.y, SetPoint.z, SetPoint.yaw, SetPoint.vx, SetPoint.vy, SetPoint.vz, SetPoint.yawDOT);
 
 	// RESET STATE COUNTER
 	if(state != stateOld)

@@ -36,8 +36,8 @@ public:
 	struct Odometry
 	{ std::atomic<float> x, y, z, vx, vy, vz, rollspeed, pitchspeed, yawspeed; }odometry;
 
-	struct PoseSetPoint
-	{ std::atomic<float> x, y, z, yaw; }PoseSetPoint;
+	struct SetPoint
+	{ std::atomic<float> x, y, z, yaw ,vx, vy, vz, yawDOT; }SetPoint;
 
 	struct vehiclecommandmode
 	{ std::atomic<bool> flag_control_offboard_enabled; }vehiclecommandmode;
@@ -57,6 +57,8 @@ public:
 	void publish_offboard_control_mode(OffboardControl mode);
 	void publish_traj_setp_position(float x, float y, float z, float yaw);
 	void publish_traj_setp_speed(float vx, float vy, float vz, float yawspeed);
+	void publish_traj_setpoint(float x, float y, float z, float yaw,
+							   float vx, float vy, float vz, float yawDOT);
 	void publish_local_pose(float x, float y, float z);
 
 private:
