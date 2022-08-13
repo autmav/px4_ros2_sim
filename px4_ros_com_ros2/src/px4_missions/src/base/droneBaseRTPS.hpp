@@ -59,7 +59,8 @@ public:
 	void publish_traj_setp_speed(float vx, float vy, float vz, float yawspeed);
 	void publish_traj_setpoint(float x, float y, float z, float yaw,
 							   float vx, float vy, float vz, float yawDOT);
-	void publish_local_pose(float x, float y, float z);
+	void publish_local_pose(float x, float y, float z, float yaw,
+							   float vx, float vy, float vz, float yawDOT);
 
 private:
 	void publish_vehicle_command(uint16_t command, float param1 = 0.0, float param2 = 0.0, float param3 = 0.0, float param4 = 0.0, float param5 = 0.0, float param6 = 0.0, float param7 = 0.0);

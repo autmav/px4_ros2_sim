@@ -61,7 +61,7 @@ void DroneRTPS::setFlightMode(FlightMode mode)
 		case FlightMode::mTakeOff:
 			//this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_NAV_TAKEOFF, 0.0, 0.0, 0.0, 0.0, 49.228754, 16.573077, 293);
 			this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 4, 2,std::numeric_limits<float>::quiet_NaN(),
-										odometry.x.load(),odometry.y.load(),odometry.z.load()+3);
+										odometry.x.load(),odometry.y.load(),odometry.z.load()-3);
 			RCLCPP_INFO(this->get_logger(), "TakeOff flight mode set");
 			break;
 			
@@ -116,7 +116,11 @@ void DroneRTPS::publish_offboard_control_mode(OffboardControl mode)
 	msg.attitude = false;
 	msg.body_rate = false;
 	_offboard_control_mode_publisher->publish(msg);
-	RCLCPP_INFO(this->get_logger(), "Offboard Control Mode %s" , OffboardControl::oRelPos);
+	//if(mode == OffboardControl::oRelPos)
+		//RCLCPP_INFO(this->get_logger(), "Offboard Control Mode Pose");
+	//if(mode == OffboardControl::oVelocity)
+		//RCLCPP_INFO(this->get_logger(), "Offboard Control Mode Vel");
+	
 }
 
 
@@ -175,20 +179,23 @@ void DroneRTPS::publish_traj_setpoint(float x = std::numeric_limits<float>::quie
 
 
 
-void DroneRTPS::publish_local_pose(float x, float y, float z)
+void DroneRTPS::publish_local_pose(float x = std::numeric_limits<float>::quiet_NaN(), float y = std::numeric_limits<float>::quiet_NaN(),
+									  float z = std::numeric_limits<float>::quiet_NaN(), float yaw = std::numeric_limits<float>::quiet_NaN(),
+									  float vx = std::numeric_limits<float>::quiet_NaN(), float vy = std::numeric_limits<float>::quiet_NaN(),
+									  float vz = std::numeric_limits<float>::quiet_NaN(), float yawDOT = std::numeric_limits<float>::quiet_NaN())
 {
 	VehicleLocalPositionSetpoint msg{};
 	msg.timestamp = _timestamp.load();
 	msg.x = x;
 	msg.y = y;
 	msg.z = z;
-	msg.yaw = std::numeric_limits<float>::quiet_NaN();
-	msg.vx = std::numeric_limits<float>::quiet_NaN();
-	msg.vy = std::numeric_limits<float>::quiet_NaN();
-	msg.vz = std::numeric_limits<float>::quiet_NaN();
-	msg.yawspeed = std::numeric_limits<float>::quiet_NaN();
+	msg.yaw = yaw;
+	msg.vx = vx;
+	msg.vy = vy;
+	msg.vz = vz;
+	msg.yawspeed = yawDOT;
 	_local_setpoint_publisher->publish(msg);
-	RCLCPP_INFO(this->get_logger(), "Local position published");
+	//RCLCPP_INFO(this->get_logger(), "Local position published");
 }
 
 
