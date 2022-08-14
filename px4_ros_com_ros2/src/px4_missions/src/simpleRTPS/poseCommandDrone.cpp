@@ -134,8 +134,8 @@ void DroneSimple::flight_mode_timer_callback()
 		case 50:
 			if(stateCounter == 1)
 			{
-				SetPoint.x = 0;
-				SetPoint.y = 2;
+				SetPoint.x = 10;
+				SetPoint.y = 0;
 				SetPoint.z = -3;
 				SetPoint.yaw = NAN;
 			}

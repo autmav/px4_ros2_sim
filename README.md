@@ -5,10 +5,12 @@ If you want to use other msgs beside default rtps msgs for ROS2, add them to urt
 
 ```
 cd px4_ros2_sim/PX4-Autopilot/msg/tools
-```
-Also the list of msgs are in
-```
-cd px4_ros2_sim/px4_ros_com_ros2/src/px4_msgs
+
+python3 uorb_to_ros_urtps_topics.py -i urtps_bridge_topics.yaml -o ../../../px4_ros_com_ros2/src/px4_ros_com/templates/urtps_bridge_topics.yaml
+
+cd ../.. 
+
+make clean 
 ```
 
 Then fallow the instructions below

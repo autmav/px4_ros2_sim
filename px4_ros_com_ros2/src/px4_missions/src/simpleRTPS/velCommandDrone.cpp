@@ -47,9 +47,9 @@ void DroneSimple::flight_mode_timer_callback()
 
 		case 50:
 			RCLCPP_INFO( this->get_logger(), "Error X %f ",3 - odometry.x.load() );
-			if(abs(odometry.x.load() - 5 ) <= 0.1 && stateCounter > 5)
+			if(abs(odometry.x.load() - 20) <= 0.1 && stateCounter > 5)
 			{
-				RCLCPP_INFO( this->get_logger(), "Error X %f ",abs(5-odometry.x.load()) );
+				RCLCPP_INFO( this->get_logger(), "Error X %f ",abs(20-odometry.x.load()) );
 			 	state = 60;
 			}
 			break;
@@ -95,11 +95,11 @@ void DroneSimple::flight_mode_timer_callback()
 				RCLCPP_INFO(this->get_logger(), "Initiate ... ");
 				SetPoint.x = 0;
 				SetPoint.y = 0;
-				SetPoint.z = 0;
+				SetPoint.z = -4;
 				SetPoint.yaw = 0;
 				SetPoint.vx = 0;
 				SetPoint.vy = 0;
-				SetPoint.vz = 0.2;
+				SetPoint.vz = 0;
 				SetPoint.yawDOT = 0;
 				set_home();
 				publish_offboard_control_mode(OffboardControl::oVelocity);
@@ -139,11 +139,11 @@ void DroneSimple::flight_mode_timer_callback()
 			if(stateCounter == 1)
 			{
 				
-				SetPoint.x = std::numeric_limits<float>::quiet_NaN();;
-				SetPoint.y = std::numeric_limits<float>::quiet_NaN();;
-				SetPoint.z = std::numeric_limits<float>::quiet_NaN();;
+				SetPoint.x = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.y = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.z = -3; //std::numeric_limits<float>::quiet_NaN();
 				SetPoint.yaw = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vx = 1;
+				SetPoint.vx = 0.2;
 				SetPoint.vy = 0;
 				SetPoint.vz = 0;
 				SetPoint.yawDOT = std::numeric_limits<float>::quiet_NaN();
@@ -157,9 +157,9 @@ void DroneSimple::flight_mode_timer_callback()
 			{
 				SetPoint.x = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.y = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.z = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.z = -3;
 				SetPoint.yaw = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vx = -1;
+				SetPoint.vx = -0.2;
 				SetPoint.vy = 0;
 				SetPoint.vz = 0;
 				SetPoint.yawDOT = std::numeric_limits<float>::quiet_NaN();
