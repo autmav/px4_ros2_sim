@@ -56,7 +56,16 @@ target_include_directories(offBoardRTPS_Pose PUBLIC
 install(TARGETS offBoardRTPS_Pose
   DESTINATION lib/${PROJECT_NAME})
 
+# collision_Prevention
+add_executable(collisionPrevension src/collisionPrevension.cpp)
+ament_target_dependencies(collisionPrevension rclcpp px4_msgs geometry_msgs geographic_msgs sensor_msgs tf2 tf2_ros tf2_geometry_msgs)
 
+target_include_directories(collisionPrevension PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+install(TARGETS collisionPrevension
+  DESTINATION lib/${PROJECT_NAME})
 
 
 # all packages

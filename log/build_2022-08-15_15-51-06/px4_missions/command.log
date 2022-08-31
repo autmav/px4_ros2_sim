@@ -1,0 +1,4 @@
+Invoking command in '/home/parsa/px4_ros2_sim/build/px4_missions': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions -DCMAKE_INSTALL_PREFIX=/home/parsa/px4_ros2_sim/install/px4_missions
+Invoked command in '/home/parsa/px4_ros2_sim/build/px4_missions' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions -DCMAKE_INSTALL_PREFIX=/home/parsa/px4_ros2_sim/install/px4_missions
+Invoking command in '/home/parsa/px4_ros2_sim/build/px4_missions': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/parsa/px4_ros2_sim/build/px4_missions -- -j8 -l8
+Invoked command in '/home/parsa/px4_ros2_sim/build/px4_missions' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/parsa/px4_ros2_sim/build/px4_missions -- -j8 -l8

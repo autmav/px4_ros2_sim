@@ -1,0 +1,225 @@
+[0.332s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'px4_missions']
+[0.332s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f54c5d9f430>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['px4_missions'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f54c5d9f430>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f54c5cdf7f0>)
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.380s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/parsa/px4_ros2_sim'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extensions ['ignore', 'ignore_ament_install']
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extension 'ignore'
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extension 'ignore_ament_install'
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extensions ['colcon_pkg']
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extension 'colcon_pkg'
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extensions ['colcon_meta']
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extension 'colcon_meta'
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extensions ['ros']
+[0.392s] Level 1:colcon.colcon_core.package_identification:_identify(PX4-Autopilot) by extension 'ros'
+[0.405s] DEBUG:colcon.colcon_core.package_identification:Package 'PX4-Autopilot' with type 'ros.catkin' and name 'px4'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'ignore'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'ignore_ament_install'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['colcon_pkg']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'colcon_pkg'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['colcon_meta']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'colcon_meta'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['ros']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'ros'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['cmake', 'python']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'cmake'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'python'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extensions ['python_setup_py']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2) by extension 'python_setup_py'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/build) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/build) by extension 'ignore'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/build) ignored
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/install) by extensions ['ignore', 'ignore_ament_install']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/install) by extension 'ignore'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/install) ignored
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/log) by extensions ['ignore', 'ignore_ament_install']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/log) by extension 'ignore'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/log) ignored
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['ignore', 'ignore_ament_install']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'ignore'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'ignore_ament_install'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['colcon_pkg']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'colcon_pkg'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['colcon_meta']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'colcon_meta'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['ros']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'ros'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['cmake', 'python']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'cmake'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'python'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extensions ['python_setup_py']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src) by extension 'python_setup_py'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extensions ['ignore', 'ignore_ament_install']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extension 'ignore'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extension 'ignore_ament_install'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extensions ['colcon_pkg']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extension 'colcon_pkg'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extensions ['colcon_meta']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extension 'colcon_meta'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extensions ['ros']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_missions) by extension 'ros'
+[0.414s] DEBUG:colcon.colcon_core.package_identification:Package 'px4_ros_com_ros2/src/px4_missions' with type 'ros.ament_cmake' and name 'px4_missions'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extension 'ignore'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extension 'ignore_ament_install'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extensions ['colcon_pkg']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extension 'colcon_pkg'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extensions ['colcon_meta']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extension 'colcon_meta'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extensions ['ros']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_msgs) by extension 'ros'
+[0.415s] DEBUG:colcon.colcon_core.package_identification:Package 'px4_ros_com_ros2/src/px4_msgs' with type 'ros.ament_cmake' and name 'px4_msgs'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extensions ['ignore', 'ignore_ament_install']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extension 'ignore'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extension 'ignore_ament_install'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extensions ['colcon_pkg']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extension 'colcon_pkg'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extensions ['colcon_meta']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extension 'colcon_meta'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extensions ['ros']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(px4_ros_com_ros2/src/px4_ros_com) by extension 'ros'
+[0.418s] DEBUG:colcon.colcon_core.package_identification:Package 'px4_ros_com_ros2/src/px4_ros_com' with type 'ros.ament_cmake' and name 'px4_ros_com'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['ignore', 'ignore_ament_install']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'ignore'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'ignore_ament_install'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['colcon_pkg']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'colcon_pkg'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['colcon_meta']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'colcon_meta'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['ros']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'ros'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['cmake', 'python']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'cmake'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'python'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extensions ['python_setup_py']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements) by extension 'python_setup_py'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS) by extensions ['ignore', 'ignore_ament_install']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS) by extension 'ignore_ament_install'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS) by extensions ['colcon_pkg']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS) by extension 'colcon_pkg'
+[0.420s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Setting type 'cmake' of package 'requirements/Fast-DDS' from colcon.pkg
+[0.421s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Setting name 'fastrtps' of package 'requirements/Fast-DDS' from colcon.pkg
+[0.421s] DEBUG:colcon.colcon_core.package_identification:Package 'requirements/Fast-DDS' with type 'cmake' and name 'fastrtps'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS-Gen) by extensions ['ignore', 'ignore_ament_install']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS-Gen) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS-Gen) by extension 'ignore_ament_install'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS-Gen) by extensions ['colcon_pkg']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/Fast-DDS-Gen) by extension 'colcon_pkg'
+[0.422s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Setting type 'gradle' of package 'requirements/Fast-DDS-Gen' from colcon.pkg
+[0.422s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Setting name 'fastrtpsgen' of package 'requirements/Fast-DDS-Gen' from colcon.pkg
+[0.422s] DEBUG:colcon.colcon_core.package_identification:Package 'requirements/Fast-DDS-Gen' with type 'gradle' and name 'fastrtpsgen'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extension 'ignore'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extension 'ignore_ament_install'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extensions ['colcon_pkg']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extension 'colcon_pkg'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extensions ['colcon_meta']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extension 'colcon_meta'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extensions ['ros']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(requirements/foonathan_memory_vendor) by extension 'ros'
+[0.423s] DEBUG:colcon.colcon_core.package_identification:Package 'requirements/foonathan_memory_vendor' with type 'ros.cmake' and name 'foonathan_memory_vendor'
+[0.423s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.445s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Updating descriptor of package 'requirements/Fast-DDS' from colcon.pkg: {'name': 'fastrtps', 'type': 'cmake', 'dependencies': ['fastcdr', 'FOONATHAN_MEMORY', 'foonathan_memory_vendor']}
+[0.446s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Updating descriptor of package 'requirements/Fast-DDS-Gen' from colcon.pkg: {'name': 'fastrtpsgen', 'type': 'gradle', 'test-dependencies': ['fastrtps']}
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'foonathan_memory_vendor' in 'requirements/foonathan_memory_vendor'
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'px4' in 'PX4-Autopilot'
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'px4_msgs' in 'px4_ros_com_ros2/src/px4_msgs'
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'fastrtps' in 'requirements/Fast-DDS'
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'fastrtpsgen' in 'requirements/Fast-DDS-Gen'
+[0.448s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'px4_ros_com' in 'px4_ros_com_ros2/src/px4_ros_com'
+[0.449s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.449s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.451s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/parsa/px4_ros2_sim/px4_ros_com_ros2/install
+[0.453s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 277 installed packages in /opt/ros/foxy
+[0.455s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_target' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_clean_cache' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_clean_first' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'cmake_force_configure' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'ament_cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'catkin_cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'px4_missions' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.526s] DEBUG:colcon.colcon_core.verb:Building package 'px4_missions' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/parsa/px4_ros2_sim/build/px4_missions', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/parsa/px4_ros2_sim/install/px4_missions', 'merge_install': False, 'path': '/home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions', 'symlink_install': False, 'test_result_base': None}
+[0.527s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.532s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.532s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions' with build type 'ament_cmake'
+[0.532s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions'
+[0.537s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.537s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.537s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.541s] WARNING:colcon.colcon_core.shell:The following packages are in the workspace but haven't been built:
+- px4_msgs
+They are being used from the following locations instead:
+- /home/parsa/px4_ros2_sim/px4_ros_com_ros2/install/px4_msgs
+To suppress this warning ignore these packages in the workspace:
+--packages-ignore px4_msgs
+[0.551s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/parsa/px4_ros2_sim/build/px4_missions': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions -DCMAKE_INSTALL_PREFIX=/home/parsa/px4_ros2_sim/install/px4_missions
+[3.421s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/parsa/px4_ros2_sim/build/px4_missions' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/parsa/px4_ros2_sim/px4_ros_com_ros2/src/px4_missions -DCMAKE_INSTALL_PREFIX=/home/parsa/px4_ros2_sim/install/px4_missions
+[3.424s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/parsa/px4_ros2_sim/build/px4_missions': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/parsa/px4_ros2_sim/build/px4_missions -- -j8 -l8
+[17.518s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/parsa/px4_ros2_sim/build/px4_missions' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/parsa/px4_ros2_sim/build/px4_missions -- -j8 -l8
+[17.563s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_missions)
+[17.570s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions' for CMake module files
+[17.570s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions' for CMake config files
+[17.570s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions/bin'
+[17.570s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions/lib/pkgconfig/px4_missions.pc'
+[17.571s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions/lib/python3.8/site-packages'
+[17.571s] Level 1:colcon.colcon_core.environment:checking '/home/parsa/px4_ros2_sim/install/px4_missions/bin'
+[17.573s] INFO:colcon.colcon_core.shell:Creating package script '/home/parsa/px4_ros2_sim/install/px4_missions/share/px4_missions/package.ps1'
+[17.574s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/parsa/px4_ros2_sim/install/px4_missions/share/px4_missions/package.dsv'
+[17.574s] INFO:colcon.colcon_core.shell:Creating package script '/home/parsa/px4_ros2_sim/install/px4_missions/share/px4_missions/package.sh'
+[17.575s] INFO:colcon.colcon_core.shell:Creating package script '/home/parsa/px4_ros2_sim/install/px4_missions/share/px4_missions/package.bash'
+[17.576s] INFO:colcon.colcon_core.shell:Creating package script '/home/parsa/px4_ros2_sim/install/px4_missions/share/px4_missions/package.zsh'
+[17.576s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/parsa/px4_ros2_sim/install/px4_missions/share/colcon-core/packages/px4_missions)
+[17.587s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[17.587s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[17.587s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[17.588s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[17.596s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[17.596s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[17.596s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[17.611s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[17.613s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parsa/px4_ros2_sim/install/local_setup.ps1'
+[17.614s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/parsa/px4_ros2_sim/install/_local_setup_util_ps1.py'
+[17.615s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parsa/px4_ros2_sim/install/setup.ps1'
+[17.617s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parsa/px4_ros2_sim/install/local_setup.sh'
+[17.618s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/parsa/px4_ros2_sim/install/_local_setup_util_sh.py'
+[17.618s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parsa/px4_ros2_sim/install/setup.sh'
+[17.620s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parsa/px4_ros2_sim/install/local_setup.bash'
+[17.620s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parsa/px4_ros2_sim/install/setup.bash'
+[17.622s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parsa/px4_ros2_sim/install/local_setup.zsh'
+[17.622s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parsa/px4_ros2_sim/install/setup.zsh'
