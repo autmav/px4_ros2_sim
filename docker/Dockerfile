@@ -2,35 +2,38 @@ From ros:foxy-ros1-bridge-focal
 
 RUN apt-get update
 
-RUN apt install vim -y
+	apt install vim -y \
 
-RUN apt-get install software-properties-common -y
+    apt-get install udev -y \	
 
-RUN mkdir -p ./ros2_ws/src
+	apt-get install software-properties-common -y \	
 
+	mkdir -p ./ros2_ws/src \	
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE\	
 
-RUN add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u 
+	add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u \	
 
-RUN apt-get install librealsense2-dkms -y
+	apt-get install librealsense2-dkms -y \
+	
+	apt-get install librealsense2-utils -y \
+	
+	apt-get install librealsense2-dev -y \
+	
+	apt-get install librealsense2-dbg -y \
+	
+	cd .. \
+	
+	rosdep update \
+	
+	apt-get install ros-foxy-realsense2-camera -y \
+	
+	export ROS1_INSTALL_PATH=/opt/ros/noetic \
+	
+	export ROS2_INSTALL_PATH=opt/ros/foxy \
 
-RUN apt-get install librealsense2-utils -y
-
-RUN apt-get install librealsense2-dev -y
-
-RUN apt-get install librealsense2-dbg -y
-
-RUN cd ..
-
-RUN rosdep update
-
-RUN apt-get install ros-foxy-realsense2-camera -y
-
-RUN export ROS1_INSTALL_PATH=/opt/ros/noetic
-
-RUN export ROS2_INSTALL_PATH=~/ros2_rolling/install
-
+	source /opt/ros/foxy/setup.bash
+ 
 
 COPY . ./ros2_ws
 
