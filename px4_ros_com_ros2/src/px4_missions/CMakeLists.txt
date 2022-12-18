@@ -29,9 +29,19 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
+include_directories(include ${sensor_msgs_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
-
-
+SET(Libraries
+    geometry_msgs
+    std_msgs
+    nav_msgs
+    nav2_msgs
+    rclcpp
+    rclcpp_components
+    sensor_msgs
+    pcl_conversions
+)
 
 # offBoardRTPS_Vel
 add_executable(offBoardRTPS_Vel src/offBoardRTPS_Vel.cpp src/simpleRTPS/velCommandDrone.cpp src/base/droneBaseRTPS.cpp)
@@ -57,6 +67,17 @@ install(TARGETS offBoardRTPS_Pose
   DESTINATION lib/${PROJECT_NAME})
 
 
+# nav2_guidance
+add_executable(nav2_guidance src/offBoardRTPS_Nav2.cpp src/simpleRTPS/nav2_guidance.cpp src/base/droneBaseRTPS.cpp)
+ament_target_dependencies(nav2_guidance rclcpp px4_msgs geometry_msgs geographic_msgs sensor_msgs tf2 tf2_ros tf2_geometry_msgs)
+
+target_include_directories(nav2_guidance PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+install(TARGETS nav2_guidance
+  DESTINATION lib/${PROJECT_NAME})
+
 
 
 # all packages
@@ -66,7 +87,6 @@ install(DIRECTORY launch
 install(DIRECTORY params
   DESTINATION share/${PROJECT_NAME}
 )
-
 
 
 

@@ -7,6 +7,7 @@ DroneRTPS::DroneRTPS() : Node("DroneRTPS")
 	_local_setpoint_publisher = this->create_publisher<VehicleLocalPositionSetpoint>("fmu/vehicle_local_position_setpoint/in", 10);
 	_vehicle_command_publisher = this->create_publisher<VehicleCommand>("fmu/vehicle_command/in", 10);
 	_home_pose_publisher = this->create_publisher<HomePosition>("/fmu/home_position/in", 10);
+	//_publish_local_obstacle_distance = this->create_publisher<ObstacleDistance>("/fmu/obstacle_distance",10);
 
 	_timesync_sub = this->create_subscription<px4_msgs::msg::Timesync>(
 										"fmu/timesync/out", 
@@ -43,6 +44,18 @@ DroneRTPS::DroneRTPS() : Node("DroneRTPS")
 											odometry.rollspeed.store(msg->rollspeed);
 											odometry.pitchspeed.store(msg->pitchspeed);
 											odometry.yawspeed.store(msg->yawspeed);
+										});
+
+	_nav2_bringup_sub = this->create_subscription<geometry_msgs::msg::Twist>(
+										"/cmd_vel", 
+										10, 
+										[this](geometry_msgs::msg::Twist::ConstSharedPtr msg) {
+											cmd_vel.vx.store(msg->linear.x);
+											cmd_vel.vy.store(msg->linear.y);
+											cmd_vel.vz.store(msg->linear.z);
+											cmd_vel.rollDOT.store(msg->angular.x);
+											cmd_vel.pitchDOT.store(msg->angular.y);
+											cmd_vel.yawDOT.store(msg->angular.z);
 										});
 
     //this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_PARAMETER, 175, 4);
@@ -231,4 +244,16 @@ void DroneRTPS::set_home()
 	RCLCPP_INFO(this->get_logger(), "Home position published");
 
 }
+// void DroneRTPS::publish_local_obstacle_distance(uint16_t distances[72]) //syntax check!
+// {
+// 	ObstacleDistance msg{};
+// 	msg.timestamp = _timestamp.load();
+// 	msg.frame = 12; //Body-mounted sensors use MAV_FRAME_BODY_FRD
+// 	msg.sensor_type = 2; //MAV_DISTANCE_SENSOR_INFRARED = 2
+// 	msg.min_distance = 20; // in cm
+// 	msg.max_distance = 300; // in cm 
+// 	msg.increment = 360 / 72; //Angular width in degrees of each array element and max arrey size of 72
+// 	msg.angle_offset = 0;
+// 	msg.distances = distances;
+// }
 

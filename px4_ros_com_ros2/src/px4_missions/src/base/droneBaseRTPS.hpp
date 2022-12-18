@@ -11,6 +11,8 @@
 #include <px4_msgs/msg/vehicle_local_position_setpoint.hpp>
 #include <px4_msgs/msg/home_position.hpp>
 #include <px4_msgs/msg/vehicle_status.hpp>
+#include <px4_msgs/msg/obstacle_distance.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 
 #include <rclcpp/rclcpp.hpp>
 #include <stdint.h>
@@ -45,6 +47,9 @@ public:
 	struct vehiclestatus
 	{ std::atomic<uint> arming_state, nav_state; }vehiclestatus;
 
+	struct cmd_vel
+	{ std::atomic <float> vx, vy, vz, rollDOT, pitchDOT, yawDOT;}cmd_vel;
+
 	// struct HomePose
 	// { std::atomic<float> x, y, z; }HomePose;
 	HomePosition home_pose_msg{};
@@ -61,6 +66,7 @@ public:
 							   float vx, float vy, float vz, float yawDOT);
 	void publish_local_pose(float x, float y, float z, float yaw,
 							   float vx, float vy, float vz, float yawDOT);
+	void publish_local_obstacle_distance();
 
 private:
 	void publish_vehicle_command(uint16_t command, float param1 = 0.0, float param2 = 0.0, float param3 = 0.0, float param4 = 0.0, float param5 = 0.0, float param6 = 0.0, float param7 = 0.0);
@@ -78,6 +84,8 @@ private:
 	rclcpp::Subscription<px4_msgs::msg::VehicleOdometry>::SharedPtr _vehicle_odometry_sub;
 	rclcpp::Subscription<px4_msgs::msg::VehicleControlMode>::SharedPtr _control_mode_sub;
 	rclcpp::Subscription<px4_msgs::msg::VehicleStatus>::SharedPtr _vehicle_status_sub;
+	rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr _nav2_bringup_sub;
+	 
 };
 
 
