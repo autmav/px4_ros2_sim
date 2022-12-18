@@ -78,18 +78,6 @@ First, clone the repo recursively.
 git clone --recursive https://github.com/autmav/px4_ros2_sim.git
 ```
 
-Configure and update submodules.
-
-```
-cd px4_ros2_sim
-
-git config --global --add safe.directory '*'
-
-git submodule sync --recursive
-
-git submodule update --init --recursive --force
-```
-
 ### Build and Install
 
 #### Installing the PX4 simulator:
@@ -97,6 +85,8 @@ git submodule update --init --recursive --force
 Navigate to the local repository root. Then:
 
 ```
+cd px4_ros2_sim
+
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 
 sudo reboot
