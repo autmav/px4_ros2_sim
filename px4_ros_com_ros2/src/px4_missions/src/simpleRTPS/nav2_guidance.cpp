@@ -22,8 +22,8 @@ void DroneSimple::flight_mode_timer_callback()
 			break;
 
 		case 20:
-			RCLCPP_INFO( this->get_logger(), "Error Z %f ",2 + odometry.z.load() );
-			if(-odometry.z.load() >= 2 - 0.2 )
+			RCLCPP_INFO( this->get_logger(), "Error Z %f ",1 + odometry.z.load() );
+			if(-odometry.z.load() >= 1 - 0.2 )
 				state = 30;
 			break;
 
@@ -54,25 +54,30 @@ void DroneSimple::flight_mode_timer_callback()
 			if(cmd_vel.yawDOT.load()==1)
 			{
 				RCLCPP_INFO( this->get_logger(), "NAV Faild" );
-			}
-            if(vehiclecommandmode.flag_control_offboard_enabled.load()==false)
-			{
-				
-                if(vehiclecommandmode.flag_control_offboard_enabled.load()==true)
-			    {
-				    state = 60;
-				    RCLCPP_INFO(this->get_logger(), "Offboard flight mode Set");
-			    }
-			    else
-			    {
-				    this->setFlightMode(FlightMode::mOffboard);
-				    RCLCPP_INFO(this->get_logger(), "Offboard flight mode did not set retry ...");
-			    }
+			
+				if(vehiclecommandmode.flag_control_offboard_enabled.load()==false)
+				{
+					
+					if(vehiclecommandmode.flag_control_offboard_enabled.load()==true)
+					{
+						state = 60;
+						RCLCPP_INFO(this->get_logger(), "Offboard flight mode Set");
+					}
+					else
+					{
+						this->setFlightMode(FlightMode::mOffboard);
+						RCLCPP_INFO(this->get_logger(), "Offboard flight mode did not set retry ...");
+					}
+				}
 			}
 			break;
+
 		case 60:
 			if(abs(odometry.z.load()) <= 0.25) //Change to home Z or Land detection
-				state = 80;
+				state = 70;
+			break;
+		case 70:
+			RCLCPP_INFO(this->get_logger(), "Finished");
 			break;
 	}
 
@@ -81,10 +86,11 @@ void DroneSimple::flight_mode_timer_callback()
 	switch(state)
 	{
 		case 0:
-			if(stateCounter == 1)
-			{
-				vehiclestatus.arming_state.store(3.00);
-			}
+			// if(stateCounter == 0)
+			// {
+			// 	vehiclestatus.arming_state.store(3.00);
+			// 	RCLCPP_INFO(this->get_logger(), "First time arming check");
+			// }
 			RCLCPP_INFO(this->get_logger(), "Trying to Connect ... ");
 			if(vehiclestatus.arming_state.load() == 0 || vehiclestatus.arming_state.load() == 1 || vehiclestatus.arming_state.load() == 2)
 			{
@@ -104,17 +110,15 @@ void DroneSimple::flight_mode_timer_callback()
 			if(stateCounter == 1)
 			{
 				RCLCPP_INFO(this->get_logger(), "Initiate ... ");
-				SetPoint.x = 0;
-				SetPoint.y = 0;
-				SetPoint.z = -2;
+				SetPoint.x = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.y = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.z = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.yaw = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vx = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vy = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vz = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.vx = 0;
+				SetPoint.vy = 0;
+				SetPoint.vz = -0.1;
 				SetPoint.yawDOT = 0;
 				set_home();
-				publish_offboard_control_mode(OffboardControl::oVelocity);
-
 			}
 			break;
 
@@ -124,12 +128,15 @@ void DroneSimple::flight_mode_timer_callback()
 			{
                 this->setFlightMode(FlightMode::mTakeOff);
                 this->arm();
-				if(vehiclestatus.arming_state.load() == 1){
+				if(vehiclestatus.arming_state.load() == 0){
 					stateCounter = stateCounter - 1;
 					RCLCPP_INFO(this->get_logger(), "Not Armed. Retry ...");
 				}
+				else if(vehiclestatus.arming_state.load() == 1)
+					RCLCPP_INFO(this->get_logger(), "Vehicle Armed");
 				else
-					RCLCPP_INFO(this->get_logger(), "Vehicle Armed");		
+					RCLCPP_INFO(this->get_logger(), "Not Connected to Vehicle");
+		
 			}
 				
 				
@@ -147,25 +154,23 @@ void DroneSimple::flight_mode_timer_callback()
 			break;
 
 		case 50:
-				if(cmd_vel.yawDOT.load()==1)
-				{
-					SetPoint.x  	= std::numeric_limits<float>::quiet_NaN();
-					SetPoint.y  	= std::numeric_limits<float>::quiet_NaN();
-					SetPoint.z 		= std::numeric_limits<float>::quiet_NaN();
-					SetPoint.yaw	= std::numeric_limits<float>::quiet_NaN();
-					SetPoint.vx 	= 0;
-					SetPoint.vy 	= 0;
-					SetPoint.vz 	= 0;
-					SetPoint.yawDOT = 0;
-				}				
-				SetPoint.x		= std::numeric_limits<float>::quiet_NaN();
-				SetPoint.y		= std::numeric_limits<float>::quiet_NaN();
-				SetPoint.z		= std::numeric_limits<float>::quiet_NaN();
-				SetPoint.yaw	= std::numeric_limits<float>::quiet_NaN();
-				SetPoint.vx 	= cmd_vel.vy.load();
-				SetPoint.vy 	= cmd_vel.vx.load();
-				SetPoint.vz 	= cmd_vel.vz.load();
+			SetPoint.x		= std::numeric_limits<float>::quiet_NaN();
+			SetPoint.y		= std::numeric_limits<float>::quiet_NaN();
+			SetPoint.z		= std::numeric_limits<float>::quiet_NaN();
+			SetPoint.yaw	= std::numeric_limits<float>::quiet_NaN();
+			SetPoint.vx 	= cmd_vel.vy.load();
+			SetPoint.vy 	= cmd_vel.vx.load();
+			SetPoint.vz 	= cmd_vel.vz.load();
+			SetPoint.yawDOT = -cmd_vel.yawDOT.load();
+			if (cmd_vel.yawDOT.load() >= 1.00)
+			{
+				SetPoint.yawDOT = -0.1;
+				RCLCPP_INFO(this->get_logger(), "Max YawDot");
+			}
+			else
+			{
 				SetPoint.yawDOT = -cmd_vel.yawDOT.load();
+			}	
 				
 			publish_offboard_control_mode(OffboardControl::oVelocity);
 			break;
@@ -177,7 +182,7 @@ void DroneSimple::flight_mode_timer_callback()
 				//publish_offboard_control_mode(OffboardControl::oRelPos);
 				SetPoint.x = 0;
 				SetPoint.y = 0;
-				SetPoint.z = 0;
+				SetPoint.z = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.yaw = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.vx = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.vy = std::numeric_limits<float>::quiet_NaN();
@@ -214,6 +219,6 @@ void DroneSimple::flight_mode_timer_callback()
 	stateOld = state;
 
 	stateCounter++;
-	programCounter++;
+	//programCounter++;
 
 }
