@@ -9,9 +9,9 @@ A full PX4 Autopilot simulation with all prerequisites integrated into a single 
 
 To run the system, you need to have the followings installed:
 
-- ROS2 ([click for instructions](https://github.com/hamidrezafahimi/coder_archive/blob/new-br/ROS/ROS2/installation/ros-2-foxy-on-ubuntu-2020.md)). The system is tested with ROS2-foxy
+- ROS2 ([click for instructions](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)). The system is tested with ROS2-foxy
 
-- Gazebo ([click for instructions](https://github.com/hamidrezafahimi/coder_archive/blob/new-br/ROS/Gazebo/installation/gazebo-11-on-ubuntu-20-and-22.md)). The system is tested with Gazebo-11
+- Gazebo ([click for instructions]([https://github.com/hamidrezafahimi/coder_archive/blob/new-br/ROS/Gazebo/installation/gazebo-11-on-ubuntu-20-and-22.md](https://classic.gazebosim.org/tutorials?tut=install_ubuntu))). The system is tested with Gazebo-11
 
 - git (`sudo apt-get install git`)
 
