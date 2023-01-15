@@ -141,9 +141,9 @@ For *px4_msgs* and *px4_ros_com*, do:
 ```
 # Starting in the root of repo
 
-cd px4_ros_com_ros2/src/px4_ros_com/scripts
+cd px4_ros_com_ros2/
 
-source build_ros2_workspace.bash
+source src/px4_ros_com/scripts/build_ros2_workspace.bash 
 ```
 
 #### Installation of QGround
