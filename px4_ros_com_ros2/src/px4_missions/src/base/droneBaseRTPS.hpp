@@ -60,6 +60,7 @@ public:
     void setFlightMode(FlightMode mode);
 
 	void publish_offboard_control_mode(OffboardControl mode);
+	void publish_offboard_control_mode_nav2();
 	void publish_traj_setp_position(float x, float y, float z, float yaw);
 	void publish_traj_setp_speed(float vx, float vy, float vz, float yawspeed);
 	void publish_traj_setpoint(float x, float y, float z, float yaw,

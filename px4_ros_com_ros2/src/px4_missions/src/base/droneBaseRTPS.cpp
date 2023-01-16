@@ -137,6 +137,24 @@ void DroneRTPS::publish_offboard_control_mode(OffboardControl mode)
 }
 
 
+void DroneRTPS::publish_offboard_control_mode_nav2() //OffboardControl mode
+{
+	OffboardControlMode msg{};
+	msg.timestamp = _timestamp.load();
+	msg.position = true;// mode == OffboardControl::oRelPos;
+	msg.velocity = true;//mode == OffboardControl::oVelocity;
+	msg.acceleration = false;
+	msg.attitude = false;
+	msg.body_rate = false;
+	_offboard_control_mode_publisher->publish(msg);
+	//if(mode == OffboardControl::oRelPos)
+		//RCLCPP_INFO(this->get_logger(), "Offboard Control Mode Pose");
+	//if(mode == OffboardControl::oVelocity)
+		//RCLCPP_INFO(this->get_logger(), "Offboard Control Mode Vel");
+	
+}
+
+
 void DroneRTPS::publish_traj_setp_position(float x, float y, float z, float yaw)
 {
 	TrajectorySetpoint msg{};

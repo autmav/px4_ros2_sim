@@ -4,7 +4,7 @@
   <name>px4_missions</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="lindtnerdavid@gmail.com">david</maintainer>
+  <maintainer email="pa.aerospace@gmail.com">parsa</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

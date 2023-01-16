@@ -112,11 +112,11 @@ void DroneSimple::flight_mode_timer_callback()
 				RCLCPP_INFO(this->get_logger(), "Initiate ... ");
 				SetPoint.x = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.y = std::numeric_limits<float>::quiet_NaN();
-				SetPoint.z = std::numeric_limits<float>::quiet_NaN();
+				SetPoint.z = -0.05;
 				SetPoint.yaw = std::numeric_limits<float>::quiet_NaN();
 				SetPoint.vx = 0;
 				SetPoint.vy = 0;
-				SetPoint.vz = -0.1;
+				SetPoint.vz = std::numeric_limits<float>::quiet_NaN() ;
 				SetPoint.yawDOT = 0;
 				set_home();
 			}
@@ -156,11 +156,11 @@ void DroneSimple::flight_mode_timer_callback()
 		case 50:
 			SetPoint.x		= std::numeric_limits<float>::quiet_NaN();
 			SetPoint.y		= std::numeric_limits<float>::quiet_NaN();
-			SetPoint.z		= std::numeric_limits<float>::quiet_NaN();
+			SetPoint.z		= odometry.z.load();
 			SetPoint.yaw	= std::numeric_limits<float>::quiet_NaN();
 			SetPoint.vx 	= cmd_vel.vy.load();
 			SetPoint.vy 	= cmd_vel.vx.load();
-			SetPoint.vz 	= cmd_vel.vz.load();
+			SetPoint.vz 	= std::numeric_limits<float>::quiet_NaN();
 			SetPoint.yawDOT = -cmd_vel.yawDOT.load();
 			if (cmd_vel.yawDOT.load() >= 1.00)
 			{
@@ -209,7 +209,7 @@ void DroneSimple::flight_mode_timer_callback()
 
 	// OFFBOARD SETPOINTS SEND
 
-	publish_offboard_control_mode(OffboardControl::oVelocity);			
+	publish_offboard_control_mode_nav2(); //OffboardControl::oVelocity			
 	publish_traj_setpoint(SetPoint.x, SetPoint.y, SetPoint.z, SetPoint.yaw, SetPoint.vx, SetPoint.vy, SetPoint.vz, SetPoint.yawDOT);
 
 	// RESET STATE COUNTER
